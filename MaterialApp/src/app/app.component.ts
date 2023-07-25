@@ -19,7 +19,7 @@ export class AppComponent implements DoCheck {
   ngDoCheck(): void {
     const currentRoute = this.route.url;
     console.log(currentRoute);
-    if (currentRoute == "/login") {
+    if (currentRoute == "/login" ||currentRoute == "/access/register") {
       this.isMenuVisible = false;
     }
     else
