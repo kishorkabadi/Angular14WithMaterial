@@ -1,1 +1,29 @@
-<p>register works!</p>
+<mat-card>
+    <mat-card-title>User Registration</mat-card-title>
+    <mat-card-content>
+        <form class="example-form" [formGroup]="registerForm" (ngSubmit)="RegisterUser()">
+            <mat-form-field class="example-full-width" appearance="fill"  >
+                <mat-label>User Name</mat-label>
+                <input matInput placeholder="User Name" formControlName="userid"/>
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill" >
+                <mat-label>Full Name</mat-label>
+                <input matInput placeholder="Full Name"  formControlName="name"/>
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill"  >
+                <mat-label>Email</mat-label>
+                <input type="email" matInput placeholder="Email"  formControlName="email"/>
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill" >
+                <mat-label>Password</mat-label>
+                <input type="password" matInput placeholder="Password"  formControlName="password"/>
+            </mat-form-field>
+            <div>
+                <button type="submit" mat-flat-button style="margin: 5px;" color="primary">Register</button>
+                <button mat-flat-button style="margin: 5px;" color="accent" (click)="RedirectToLogin()">Close</button>
+            </div>
+        </form>
+
+
+    </mat-card-content>
+</mat-card>

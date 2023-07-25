@@ -1,0 +1,25 @@
+<p>Update User</p>
+<form [formGroup]="updateForm" (ngSubmit)="UpdateUser()">
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>User Name</mat-label>
+        <input matInput placeholder="User Name" formControlName="userid" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Role</mat-label>
+        <mat-select formControlName="role">
+        <mat-option *ngFor="let role of userRoles" [value]="role.roleid">{{role.name}}</mat-option>
+        </mat-select>
+
+    </mat-form-field>
+    <div>
+        <section class="example-section">
+            <mat-checkbox class="example-margin" formControlName="isActive">Is Active</mat-checkbox>
+        </section>
+    </div>
+    <div>
+        <div>
+            <button type="submit" mat-flat-button style="margin: 5px;" color="primary">Update</button>
+            <button mat-flat-button style="margin: 5px;" color="accent" (click)="closePopup()">Close</button>
+        </div>
+    </div>
+</form>
