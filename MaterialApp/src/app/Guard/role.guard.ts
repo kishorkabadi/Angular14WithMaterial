@@ -16,7 +16,7 @@ export class roleGuard implements CanActivate {
       return true;
     else {
       alert("you are not authorized to access it");
-      this.route.navigate(['login']);
+      this.route.navigate(['home']);
       return false;
     }
   }
