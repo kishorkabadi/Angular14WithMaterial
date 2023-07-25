@@ -1,5 +1,6 @@
 import { Component, DoCheck } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from './Service/user.service';
 
 @Component({
   selector: 'app-root',
@@ -10,16 +11,25 @@ export class AppComponent implements DoCheck {
 
   title = 'MaterialApp';
   isMenuVisible: boolean = false;
-  constructor(private route: Router) {
+  isAdmin: boolean = false;
+  constructor(private route: Router, private userService: UserService) {
 
   }
 
   ngDoCheck(): void {
     const currentRoute = this.route.url;
-    if (currentRoute == "login") {
+    console.log(currentRoute);
+    if (currentRoute == "/login") {
       this.isMenuVisible = false;
     }
     else
       this.isMenuVisible = true;
+
+    if (this.userService.GetRole() == 'admin') {
+      this.isAdmin = true;
+    }
+    else
+      this.isAdmin = false;
+
   }
 }

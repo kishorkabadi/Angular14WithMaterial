@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserModel } from '../Model/UserModel';
-
+import { Buffer } from 'buffer'
 @Injectable({
   providedIn: 'root'
 })
@@ -44,5 +44,15 @@ export class UserService {
   GetAllRole()
   {
     return this.httpClient.get("https://localhost:44308/User/GetAllRole/");
+  }
+  GetRole()
+  {
+    var token=localStorage.getItem('token');
+    if(token!=null)
+    {
+      var extractData=JSON.parse(Buffer.from(token.split('.')[1],'base64').toString());
+      return extractData.role;
+    }
+    else return '';
   }
 }

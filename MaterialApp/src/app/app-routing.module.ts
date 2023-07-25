@@ -4,6 +4,7 @@ import { AboutnComponent } from './about/aboutn.component';
 import { AddcontactComponent } from './addcontact/addcontact.component';
 import { ContactComponent } from './contact/contact.component';
 import { authGuard } from './Guard/auth.guard';
+import { roleGuard } from './Guard/role.guard';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { StatusComponent } from './status/status.component';
@@ -17,7 +18,7 @@ const routes: Routes = [
     path:"about", component:AboutnComponent,canActivate:[authGuard]
   },
   {
-    path:"user", component:UserComponent,canActivate:[authGuard]
+    path:"user", component:UserComponent,canActivate:[authGuard,roleGuard]
   },
   {
     path:"contact", component:ContactComponent,canActivate:[authGuard],
